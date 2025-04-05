@@ -1,4 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Header scroll effect
+    const header = document.querySelector('header');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        // Add/remove scrolled class
+        if (currentScroll > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+
+        lastScroll = currentScroll;
+    });
+
     // Mobile menu functionality
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
@@ -26,40 +43,41 @@ document.addEventListener('DOMContentLoaded', () => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
+            
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
                 // Close mobile menu if open
                 if (navLinks.classList.contains('nav-active')) {
                     hamburger.click();
                 }
+
+                // Smooth scroll to target
+                const headerOffset = 80;
+                const elementPosition = target.offsetTop;
+                const offsetPosition = elementPosition - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
             }
         });
     });
 
-    // Add scroll event listener for header
-    const header = document.querySelector('header');
-    let lastScroll = 0;
+    // Reveal animations on scroll
+    const revealElements = document.querySelectorAll('.menu-item, .about-text p');
+    
+    const reveal = () => {
+        revealElements.forEach(element => {
+            const windowHeight = window.innerHeight;
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
 
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
+            if (elementTop < windowHeight - elementVisible) {
+                element.classList.add('active');
+            }
+        });
+    };
 
-        if (currentScroll <= 0) {
-            header.classList.remove('scroll-up');
-            return;
-        }
-
-        if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
-            // Scroll down
-            header.classList.remove('scroll-up');
-            header.classList.add('scroll-down');
-        } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
-            // Scroll up
-            header.classList.remove('scroll-down');
-            header.classList.add('scroll-up');
-        }
-        lastScroll = currentScroll;
-    });
+    window.addEventListener('scroll', reveal);
+    reveal(); // Initial check on load
 }); 
