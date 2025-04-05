@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1000" height="500" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+    <!-- House Roof -->
+    <path d="M100 450 L500 50 L900 450 Z" fill="#cd6839"/>
+    
+    <!-- Semi-circle and Circle Design -->
+    <path d="M300 450 A 200 200 0 0 1 700 450" fill="#cd6839"/>
+    <circle cx="600" cy="350" r="50" fill="#ffffff"/>
+    
+    <!-- Text -->
+    <text x="500" y="490" font-family="Arial" font-size="48" text-anchor="middle" fill="#2b1810">
+        THE MEAL HOUSE
+    </text>
+</svg> 

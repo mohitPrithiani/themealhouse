@@ -1,3 +1,12 @@
+/* Update color variables */
+:root {
+    --primary-color: #cd6839;
+    --secondary-color: #2b1810;
+    --accent-color: #ffffff;
+    --text-color: #333333;
+    --background-light: #f9f9f9;
+}
+
 /* Reset and base styles */
 * {
     margin: 0;
@@ -25,15 +34,19 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5%;
+    padding: 0.5rem 5%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #d4af37;
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 60px;
+    width: auto;
 }
 
 .nav-links {
@@ -53,7 +66,7 @@ nav {
 }
 
 .nav-links a:hover {
-    color: #d4af37;
+    color: #cd6839;
 }
 
 .hamburger {
@@ -98,15 +111,15 @@ nav {
 .cta-button {
     display: inline-block;
     padding: 1rem 2rem;
-    background-color: #d4af37;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--accent-color);
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
 .cta-button:hover {
-    background-color: #b38f2d;
+    background-color: var(--secondary-color);
 }
 
 /* Menu Section */
@@ -164,7 +177,7 @@ nav {
     display: block;
     padding: 1rem;
     font-weight: bold;
-    color: #d4af37;
+    color: var(--primary-color);
 }
 
 /* About Section */
@@ -227,7 +240,7 @@ nav {
 
 .info-item i {
     font-size: 1.5rem;
-    color: #d4af37;
+    color: var(--primary-color);
 }
 
 .contact-form form {
@@ -251,8 +264,8 @@ nav {
 
 .submit-button {
     padding: 1rem;
-    background-color: #d4af37;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--accent-color);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -261,7 +274,7 @@ nav {
 }
 
 .submit-button:hover {
-    background-color: #b38f2d;
+    background-color: var(--secondary-color);
 }
 
 /* Footer */
@@ -289,7 +302,7 @@ footer {
 }
 
 .social-links a:hover {
-    color: #d4af37;
+    color: var(--primary-color);
 }
 
 /* Responsive Design */
